@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/common.css" rel="stylesheet">   
+    <link href="css/offcanvas.css" rel="stylesheet">   
+    <title>历史处理记录 - 用户处理 - 客服后台管理</title>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.html">客服后台</a>
+      <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">投诉管理</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="placard.html">公告管理</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="order_detail.html">交易详情</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="user_handle.html">用户处理 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="user_approval.html">用户资料审批</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link user_logout" href="">退出系统</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" onclick="history.back()">返回</a>
+          </li>  
+        </ul>        
+      </div>      
+    </nav>
+    
+    <div class="px-4">
+     <main class="pt-3">
+    
+   
+    
+     <div class="table-responsive pt-3">        
+      
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>用户id</th>
+              <th>用户名</th>
+              <th>客服操作行为</th>
+              <th>处理客服</th>
+              <th>处理客服ID</th>
+              <th>处理时间</th>
+            </tr>
+          </thead>
+          <tbody class="list">            
+            <!--<tr>
+                <td>3245345</td>
+                <td>挂起</td>
+                <td>挂起用户账户（冻结一切交易、提币、充币、发布广告）</td>                
+              	<td>其他</td>
+                <td>张三</td>  
+                <td>100</td>
+                <td>2018-03-04 14:12:00</td>
+            </tr>  -->
+            
+          </tbody>
+        </table>
+       
+        
+        <nav aria-label="Page navigation" id="page">
+          <ul class="pagination pagination-md list2">   
+          </ul>      
+        </nav>
+       
+     </div>    
+    </div>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="apijs/common.js"></script>
+    <script src="apijs/user_handle_history.js"></script>
+  </body>
+</html>

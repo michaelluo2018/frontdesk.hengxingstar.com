@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/common.css" rel="stylesheet">   
+    <link href="css/offcanvas.css" rel="stylesheet">   
+    <link rel="stylesheet" href="css/lightbox.min.css">
+    <title>申诉详情 - 申诉管理 - 客服后台管理</title>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.html">客服后台</a>
+      <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">投诉管理 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="placard.html">公告管理</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="order_detail.html">交易详情</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="user_handle.html">用户处理</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="user_approval.html">用户资料审批</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link user_logout" href="">退出系统</a>
+          </li>     
+             <li class="nav-item">
+            <a class="nav-link" onclick="history.back()">返回</a>
+          </li>   
+        </ul>        
+      </div>      
+    </nav>
+    
+    <div class="px-4">
+     <main class="pt-3">
+    
+     <div class="table-responsive">
+    
+     <div class="table-responsive col-6 float-left row">
+     	 <div class="card-header border">
+         	<a href="#" class="float-right btn btn-secondary btn-sm buyer_btn">查看更多</a>
+            <h4 class="my-0 font-weight-normal">买家信息</h4>            
+        </div>    
+        
+         <table class="table table-bordered">
+         	<tbody class="buylist">
+                  
+           </tbody>
+          </table>
+         
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>             
+              <th>投诉图片</th>
+              <th>投诉文字</th>
+              <th>投诉时间</th>
+            </tr>
+          </thead>
+          <tbody class="buylist2">            
+            
+          </tbody>
+        </table>
+        
+        </div>
+        
+        <div class="table-responsive col-6 float-right px-0">
+        <div class="card-header border">
+       		<a href="user_detail.html" class="float-right btn btn-secondary btn-sm sale_btn">查看更多</a>
+            <h4 class="my-0 font-weight-normal">卖家信息</h4>
+        </div>      
+        <table class="table table-bordered">
+        	<tbody class="salelist">
+                
+           </tbody>
+          </table>         
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>             
+              <th>投诉图片</th>
+              <th>投诉文字</th>
+              <th>投诉时间</th>
+            </tr>
+          </thead>
+          <tbody class="salelist2">            
+            
+              
+          </tbody>
+        </table>        
+         
+       </div>   
+       </div>
+       
+       <div class="list-group-item list-group-item-info">
+       
+       <h2>结果裁定</h2>
+       <form class="needs-validation" novalidate="">
+            <div class="row">
+              <div class="col-md-4 mb-4">
+                <label for="country">判断输赢</label>
+                <select class="custom-select d-block w-100" id="doom_win">                 
+                  <option value="1">买方胜诉（卖家的币放行，直接打给买方）</option>
+                  <option value="0">卖方胜诉（卖家的币取消锁定）</option>
+                </select>
+                <div class="invalid-feedback">
+                  判断输赢
+                </div>
+              </div>
+             <!-- <div class="col-md-3 mb-3">
+                <label for="state">处理订单交易</label>
+                <select class="custom-select d-block w-100" id="doom_clorder">
+                 <option selected="selected" value="0">不处理</option>
+                  <option value="1">将卖家的币放行，币直接打给买方</option>
+                  <option value="2">将卖家的币取消锁定</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>-->
+              <div class="col-md-4 mb-4">
+                <label for="state">处理买方</label>
+                <select class="custom-select d-block w-100" id="doom_clbuy">
+               	  <option selected="selected" value="0">不惩罚</option>
+                  <option value="1">24之内不能交易</option>
+                  <option value="2">永远不能交易</option>
+                  
+                </select>
+
+                <div class="invalid-feedback">
+                  处理买方
+                </div>
+              </div>
+               <div class="col-md-4 mb-4">
+                <label for="state">处理卖方</label>
+                <select class="custom-select d-block w-100" id="doom_clsale">
+                  <option value="0" selected="selected">不惩罚</option>
+                  <option value="1">24之内不能交易</option>
+                  <option value="2">永远不能交易</option>
+                </select>
+
+                <div class="invalid-feedback">
+                  处理卖方
+                </div>
+              </div>
+              <div class="col-md-12">
+                <label for="zip">备注</label>
+                <textarea  class="form-control" id="doom_info" cols="250" rows="3"></textarea>               
+                <div class="invalid-feedback">
+                  请填写备注
+                </div>
+              </div>
+            </div>            
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" id="submit_doom" type="button">进行判决</button>
+          </form>
+        </div>
+     </div>    
+    </div>
+    
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/lightbox-plus-jquery.min.js"></script>
+    <script src="apijs/common.js"></script>
+    <script src="apijs/detail.js"></script>
+	
+  </body>
+</html>

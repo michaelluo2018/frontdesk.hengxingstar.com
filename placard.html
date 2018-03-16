@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link href="css/offcanvas.css" rel="stylesheet">      
+    <script type="text/javascript" charset="utf-8" src="js/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="js/zh-cn.js"></script> 
+    <title>公告管理 - 客服后台管理</title>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.html">客服后台</a>
+      <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">投诉管理</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="placard.html">公告管理 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="order_detail.html">交易详情</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="user_handle.html">用户处理</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="user_approval.html">用户资料审批</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link user_logout" href="">退出系统</a>
+          </li>          
+        </ul>        
+      </div>      
+    </nav>
+    
+    <div class="px-4">
+     <main class="pt-3">
+     
+     <ul class="list-group" id="user_info">
+     	<li class="list-group-item active">发布公告</li>
+    
+        <li class="list-group-item"><form class="form-inline ">        
+         <div class="input-group w-100 pb-2">  
+            <input type="text" placeholder="公告标题" class="form-control" id="placard-title" value="" />
+         </div>
+         <div class="input-group w-100">   
+         <script id="editor" type="text/plain" style=" width:99.9%;height:300px;"></script>  
+         <!-- <textarea name="" placeholder="公告内容" class="form-control" id="placard-content"  rows="10" cols="120" ></textarea>      -->
+         
+          
+        </div>
+        <div class="input-group w-100 pt-2">  
+          <button type="button" class="btn btn-secondary w-100" id="submit_placard">提交公告</button>
+          </div>
+        </form>
+        </li>
+    </ul>
+    
+   <!-- <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>-->
+    
+     <div class="table-responsive pt-3">
+      <div class="card-header border">
+            <h4 class="my-0 font-weight-normal">历史公告</h4>
+        </div> 
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>发布时间</th>
+              <th>标题</th>
+              <th>内容</th>
+              <th>客服工号</th> 
+              <th>上传人</th> 
+              <th>操作</th> 
+            </tr>
+          </thead>
+          <tbody class="list">           
+            
+          </tbody>
+        </table>        
+       
+         <nav aria-label="Page navigation" id="page"> 
+          <ul class="pagination pagination-md list2">
+        
+          </ul>
+        </nav> 
+       </div>    
+     </div>    
+    </div>
+    
+    <script type="text/javascript">
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+
+
+    function isFocus(e){
+        alert(UE.getEditor('editor').isFocus());
+        UE.dom.domUtils.preventDefault(e)
+    }
+    function setblur(e){
+        UE.getEditor('editor').blur();
+        UE.dom.domUtils.preventDefault(e)
+    }
+    function insertHtml() {
+        var value = prompt('插入html代码', '');
+        UE.getEditor('editor').execCommand('insertHtml', value)
+    }
+    function createEditor() {
+        enableBtn();
+        UE.getEditor('editor');
+    }
+    function getAllHtml() {
+        alert(UE.getEditor('editor').getAllHtml())
+    }
+    function getContent() {
+        var arr = [];
+        arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+        arr.push("内容为：");
+        arr.push(UE.getEditor('editor').getContent());
+        alert(arr.join("\n"));
+    }
+    function getPlainTxt() {
+        var arr = [];
+        arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
+        arr.push("内容为：");
+        arr.push(UE.getEditor('editor').getPlainTxt());
+        alert(arr.join('\n'))
+    }
+    function setContent(isAppendTo) {
+        var arr = [];
+        arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
+        UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
+        alert(arr.join("\n"));
+    }
+    function setDisabled() {
+        UE.getEditor('editor').setDisabled('fullscreen');
+        disableBtn("enable");
+    }
+
+    function setEnabled() {
+        UE.getEditor('editor').setEnabled();
+        enableBtn();
+    }
+
+    function getText() {
+        //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
+        var range = UE.getEditor('editor').selection.getRange();
+        range.select();
+        var txt = UE.getEditor('editor').selection.getText();
+        alert(txt)
+    }
+
+    function getContentTxt() {
+        var arr = [];
+        arr.push("使用editor.getContentTxt()方法可以获得编辑器的纯文本内容");
+        arr.push("编辑器的纯文本内容为：");
+        arr.push(UE.getEditor('editor').getContentTxt());
+        alert(arr.join("\n"));
+    }
+    function hasContent() {
+        var arr = [];
+        arr.push("使用editor.hasContents()方法判断编辑器里是否有内容");
+        arr.push("判断结果为：");
+        arr.push(UE.getEditor('editor').hasContents());
+        alert(arr.join("\n"));
+    }
+    function setFocus() {
+        UE.getEditor('editor').focus();
+    }
+    function deleteEditor() {
+        disableBtn();
+        UE.getEditor('editor').destroy();
+    }
+    function disableBtn(str) {
+        var div = document.getElementById('btns');
+        var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+        for (var i = 0, btn; btn = btns[i++];) {
+            if (btn.id == str) {
+                UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+            } else {
+                btn.setAttribute("disabled", "true");
+            }
+        }
+    }
+    function enableBtn() {
+        var div = document.getElementById('btns');
+        var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+        for (var i = 0, btn; btn = btns[i++];) {
+            UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+        }
+    }
+
+    function getLocalData () {
+        alert(UE.getEditor('editor').execCommand( "getlocaldata" ));
+    }
+
+    function clearLocalData () {
+        UE.getEditor('editor').execCommand( "clearlocaldata" );
+        alert("已清空草稿箱")
+    }
+</script>
+    
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="apijs/common.js"></script>
+    <script src="apijs/placard.js"></script>       
+  </body>
+</html>

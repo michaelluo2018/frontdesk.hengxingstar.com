@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link href="css/offcanvas.css" rel="stylesheet">   
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+</head>
+    <title>交易详情 - 客服后台管理</title>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.html">客服后台</a>
+      <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">投诉管理</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="placard.html">公告管理</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="order_detail.html">交易详情 <span class="sr-only">(current)</span></a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="user_handle.html">用户处理</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="user_approval.html">用户资料审批</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link user_logout">退出系统</a>
+          </li>          
+        </ul>        
+      </div>      
+    </nav>
+        
+    <div class="px-4">
+     <main class="pt-3">    
+     
+     <form class="form-inline">     
+     选择时间段：
+     <div class="input-group w-75">
+      <div class="input-group date form_date col-md-3" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+            <input class="form-control" size="16" type="text" id="stime" value="" readonly>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+        </div>
+        <input type="hidden" id="dtp_input1" value="" />
+      -
+      <div class="input-group date form_date col-md-3" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+            <input class="form-control" size="16" type="text" id="etime" value="" readonly>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+        </div>
+        <input type="hidden" id="dtp_input2" value="" />
+      <div class="input-group-append col-md-4">
+      
+      
+        <div class="input-group">
+      <input type="text" class="form-control" id="uid" placeholder="输入用户ID">
+      <div class="input-group-append">
+        <button type="button" class="btn btn-secondary" id="search">搜索</button>
+      </div>
+    </div>
+      </div><button type="button" class="btn btn-secondary" id="download">下载全部</button>
+    </div>
+    </form>
+     
+     
+     <div class="table-responsive pt-3">
+    	<div class="card-header border">
+       		<!--<label class="float-right">日期：2018/3/25</label>-->
+            <h4 class="my-0 font-weight-normal">交易列表</h4>
+        </div>  
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>       
+              <th>用户ID</th>     
+              <th>用户姓名</th>
+              <th>交易时间</th>
+              <th>交易类型</th>
+              <th>交易号</th>
+              <th>交易金额</th>
+              <th>交易数量</th>
+              <th>交易价格</th>  
+            </tr>
+          </thead>
+          <tbody class="list">            
+            
+           
+          </tbody>
+        </table>
+        
+         <nav aria-label="Page navigation" id="page">
+          <ul class="pagination pagination-md list2">   
+          </ul>      
+        </nav>
+       </div>    
+     </div>    
+    </div>
+    
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="apijs/common.js"></script>
+    <script src="apijs/order_detail.js"></script>
+    
+    
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">        
+        $('.form_date').datetimepicker({
+            language:  'zh-CN',
+			format:"yyyy-mm-dd",
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0
+        });       
+    </script>
+    
+  </body>
+</html>

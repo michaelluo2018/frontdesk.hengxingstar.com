@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/floating-labels.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
+    <title>客服登录 - 客服后台管理</title>
+  </head>
+  <body>
+    <form class="form-signin">
+      <div class="text-center mb-4">
+        <img class="mb-4" src="images/logo.svg" alt="客服后台管理" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">客服登录</h1> 
+       
+      </div>
+
+      <div class="form-label-group">
+        <input type="text" id="user_code" class="form-control" value="100" placeholder="请输入您的客服工号" onfocus="if(this.placeholder=='请输入您的客服工号'){placeholder=''}" onblur="if(this.placeholder==''){placeholder='请输入您的客服工号'}">
+        <div class="message">请输入您的客服工号</div>
+      </div>
+      
+       <div class="form-label-group">
+        <input type="text" id="user_name" class="form-control" value="李四" placeholder="请输入您的姓名" onfocus="if(this.placeholder=='请输入您的姓名'){placeholder=''}" onblur="if(this.placeholder==''){placeholder='请输入您的姓名'}">
+      <div class="message">请输入您的姓名</div>
+       </div>
+
+      <div class="form-label-group">
+        <input type="password" id="user_pwd" class="form-control" value="123456" placeholder="输入您的密码" onfocus="if(this.placeholder=='输入您的密码'){placeholder=''}" onblur="if(this.placeholder==''){placeholder='输入您的密码'}">
+      <div class="message">输入您的密码</div>
+      </div>
+
+     <!-- <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> 记住登录信息
+        </label>
+      </div>-->
+      <button class="btn btn-lg btn-primary btn-block" type="button">登录</button>
+      <!--<p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>-->
+    </form>  
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+    <script type="text/javascript" src="apijs/md5.js" ></script>
+    <script type="text/javascript" src="apijs/login.js" ></script>
+  </body>
+</html>
